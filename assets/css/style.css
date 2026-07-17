@@ -1,6 +1,6 @@
 :root {
-  --background: #ffffff;
-  --surface: #f7f7f7;
+  --background: #f5f6f8;
+  --surface: #ffffff;
   --text: #171717;
   --muted: #6b6b6b;
   --line: #dedede;
@@ -51,7 +51,7 @@ a:focus-visible {
 .site-header,
 main,
 footer {
-  width: min(100% - 40px, 1000px);
+  width: min(100% - 40px, 1080px);
   margin: 0 auto;
 }
 
@@ -61,6 +61,7 @@ footer {
   justify-content: space-between;
   height: 72px;
   border-bottom: 1px solid var(--line);
+  background: var(--background);
 }
 
 .brand {
@@ -80,13 +81,16 @@ nav a:hover {
 }
 
 .hero {
-  padding: 88px 0 76px;
-  border-bottom: 1px solid var(--line);
+  margin-top: 40px;
+  padding: 72px 64px;
+  border: 1px solid #dfe6f5;
+  border-radius: 20px;
+  background: #eef3ff;
 }
 
 .eyebrow {
   margin: 0 0 12px;
-  color: var(--muted);
+  color: var(--accent);
   font-size: 14px;
 }
 
@@ -106,7 +110,7 @@ nav a:hover {
 }
 
 .projects {
-  padding: 72px 0 96px;
+  padding: 64px 0 96px;
 }
 
 .section-heading {
@@ -141,12 +145,26 @@ nav a:hover {
   border: 1px solid var(--line);
   border-radius: 12px;
   background: var(--surface);
-  transition: border-color .15s ease, transform .15s ease;
+  box-shadow: 0 8px 24px rgb(20 28 45 / 5%);
+  transition: border-color .15s ease, transform .15s ease, box-shadow .15s ease;
 }
 
 .project-card:hover {
-  border-color: #9a9a9a;
+  border-color: #a9b9dc;
   transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgb(20 28 45 / 9%);
+}
+
+.project-card:nth-child(1) {
+  border-top: 4px solid #e5674f;
+}
+
+.project-card:nth-child(2) {
+  border-top: 4px solid #4774d9;
+}
+
+.project-card:nth-child(3) {
+  border-top: 4px solid #2f9287;
 }
 
 .project-meta {
@@ -203,7 +221,9 @@ footer a:hover {
   }
 
   .hero {
-    padding: 64px 0 56px;
+    margin-top: 24px;
+    padding: 48px 28px;
+    border-radius: 14px;
   }
 
   .hero h1 {
