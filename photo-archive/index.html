@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="동아리 사진의 폴더 구조, 셀렉, 공유용 내보내기와 NAS 백업 순서">
+  <title>동아리 사진 정리 방법</title>
+  <style>
+    :root{--ink:#222;--muted:#666;--line:#ddd;--soft:#f6f6f3;--point:#276749}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;color:var(--ink);font-family:Pretendard,"Apple SD Gothic Neo",system-ui,sans-serif;word-break:keep-all}
+    main{width:min(920px,calc(100% - 40px));margin:auto}header{min-height:68px;display:flex;align-items:center;border-bottom:1px solid var(--line)}header b{font-size:15px}
+    .intro{padding:52px 0;border-bottom:1px solid var(--line)}.intro p{margin:0;color:var(--muted);line-height:1.7}.intro strong{display:block;margin:14px 0;color:var(--point);font-size:clamp(26px,5vw,43px);letter-spacing:-.04em}
+    section{padding:68px 0;border-bottom:1px solid var(--line)}.title{margin-bottom:30px;display:grid;grid-template-columns:42px 1fr;gap:14px}.title>span{width:38px;height:38px;display:grid;place-items:center;border-radius:50%;color:#fff;background:var(--point);font-size:12px;font-weight:800}
+    h1{margin:0;font-size:30px;letter-spacing:-.04em}.title p{margin:7px 0 0;color:var(--muted);font-size:14px;line-height:1.6}
+    .tree,.example{padding:24px;border:1px solid var(--line);background:var(--soft);overflow-x:auto;font-family:ui-monospace,SFMono-Regular,Menlo,monospace}.tree p,.example p{min-width:600px;margin:0;padding:6px 0;font-size:13px}.d1{padding-left:24px!important}.d2{padding-left:48px!important}.d3{padding-left:72px!important}.d4{padding-left:96px!important}.d5{padding-left:120px!important}.tree small,.example small{margin-left:12px;color:var(--muted);font-family:system-ui,sans-serif}
+    .groups{margin-top:20px;border-top:2px solid var(--ink)}article{padding:24px 0;display:grid;grid-template-columns:200px 1fr;gap:16px 30px;border-bottom:1px solid var(--line)}article h2{margin:0;font-size:20px}article>div>p,article>small{margin:6px 0 0;color:var(--muted);font-size:12px;line-height:1.6}article ul{margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px;list-style:none}article li{padding:8px 10px;background:var(--soft);font:12px ui-monospace,SFMono-Regular,Menlo,monospace}article>small{grid-column:2}
+    .rule{margin-top:28px;padding:24px;border:1px solid var(--line)}.rule h2{margin:0 0 12px;font-size:18px}.rule code{color:var(--point);font-size:25px;font-weight:800}.rule ul{margin:16px 0 0;padding-left:20px;color:var(--muted);font-size:13px;line-height:1.8}.example{margin-top:16px;background:#fff}.example>strong{display:block;margin-bottom:12px;font-family:system-ui,sans-serif}
+    ol{margin:0;padding:0;border-top:2px solid var(--ink);list-style:none}ol li{padding:24px 0;display:grid;grid-template-columns:42px 1fr;gap:16px;border-bottom:1px solid var(--line)}ol li>span{width:32px;height:32px;display:grid;place-items:center;border:1px solid var(--ink);border-radius:50%;font-size:12px;font-weight:800}ol h2{margin:2px 0 7px;font-size:18px}ol p{margin:0;color:var(--muted);font-size:14px;line-height:1.7}
+    dl{margin:0;display:grid;grid-template-columns:1fr 1fr;border-top:2px solid var(--ink)}dl div{padding:19px 15px;display:flex;justify-content:space-between;border-bottom:1px solid var(--line)}dt{color:var(--muted);font-size:13px}dd{margin:0;font-size:14px;font-weight:800;text-align:right}
+    .important{margin-top:24px;padding:20px;border-left:4px solid var(--point);background:var(--soft);font-size:14px;line-height:1.7}.important b{margin-right:14px;color:var(--point)}footer{padding:30px 0 50px;color:var(--muted);font-size:12px;line-height:1.6}
+    @media(max-width:620px){main{width:calc(100% - 28px)}section{padding:54px 0}.title{grid-template-columns:36px 1fr}.title>span{width:32px;height:32px}h1{font-size:26px}article{grid-template-columns:1fr}article>small{grid-column:1}dl{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+<main>
+  <header><b>동아리 사진 정리 방법</b></header>
+  <div class="intro">
+    <p>사진은 아래 순서대로 정리합니다.</p>
+    <strong>연도 → 학기 → 활동 분류 → 행사명</strong>
+    <p>누가 작업해도 같은 위치에서 사진을 찾을 수 있도록 폴더 이름과 순서를 바꾸지 않습니다.</p>
+  </div>
+
+  <section>
+    <div class="title"><span>01</span><div><h1>폴더 구조</h1><p>연도와 학기를 선택하고 4개 분류 중 하나에 넣습니다.</p></div></div>
+    <div class="tree">
+      <p><b>PHOTO_ARCHIVE</b></p>
+      <p class="d1">└─ <b>2026</b></p>
+      <p class="d2">├─ <b>01_1학기</b></p>
+      <p class="d3">├─ 01_위탁</p><p class="d3">├─ 02_내부활동</p><p class="d3">├─ 03_출사</p><p class="d3">└─ 04_기타</p>
+      <p class="d2">└─ <b>02_2학기</b> <small>같은 4개 폴더 사용</small></p>
+    </div>
+    <div class="groups">
+      <article><div><h2>01_위탁</h2><p>동아리 밖에서 요청받은 촬영</p></div><ul><li>01_동아리위탁(학생회포함)</li><li>02_학생팀위탁(단체사진)</li><li>03_축제</li><li>04_스타디움</li><li>05_OT</li><li>99_기타위탁</li></ul><small>학생 외 위탁 중 축제·스타디움·OT가 아니면 기타위탁에 넣습니다.</small></article>
+      <article><div><h2>02_내부활동</h2><p>동아리에서 직접 운영한 활동</p></div><ul><li>01_렛미인감</li><li>02_스리부룩북</li><li>03_품평회_컨테스트</li><li>04_증명사진</li></ul><small>매년 같은 이름과 번호를 유지합니다.</small></article>
+      <article><div><h2>03_출사</h2><p>정기·번개·합동 출사</p></div><small>행사명에 날짜와 장소를 적습니다.</small></article>
+      <article><div><h2>04_기타</h2><p>나머지 내부 기록</p></div><small>위탁·내부활동·출사 어디에도 해당하지 않을 때만 사용합니다.</small></article>
+    </div>
+    <div class="rule"><h2>행사 폴더 이름</h2><code>MM-DD_행사명</code><ul><li>촬영 시작 날짜를 사용합니다.</li><li>띄어쓰기 대신 밑줄(_)을 사용합니다.</li><li>연도와 학기는 상위 폴더에 있으므로 다시 적지 않습니다.</li></ul></div>
+    <div class="example">
+      <strong>완성된 행사 폴더 예시</strong>
+      <p>2026</p><p class="d1">└─ 01_1학기</p><p class="d2">└─ 01_위탁</p><p class="d3">└─ 03_축제</p><p class="d4">└─ <b>05-18_봄축제</b></p>
+      <p class="d5">├─ <b>01_ORIGINAL</b> <small>촬영 원본 전체</small></p><p class="d5">├─ <b>02_CATALOG</b> <small>Lightroom 카탈로그·XMP</small></p><p class="d5">├─ <b>03_EXPORT_3000</b> <small>Google 포토 공유본</small></p><p class="d5">└─ <b>README.txt</b> <small>촬영자·셀렉자·공유 링크</small></p>
+    </div>
+  </section>
+
+  <section>
+    <div class="title"><span>02</span><div><h1>실제 작업 순서</h1><p>촬영이 끝날 때마다 차례대로 진행합니다.</p></div></div>
+    <ol>
+      <li><span>1</span><div><h2>컴퓨터로 원본 복사</h2><p>메모리카드 사진을 행사 폴더의 01_ORIGINAL에 복사하고 파일 개수와 열림 여부를 확인합니다.</p></div></li>
+      <li><span>2</span><div><h2>셀렉과 보정</h2><p>동아리방 컴퓨터에서 전체 원본을 보며 고르고, 원본을 덮어쓰지 않고 별점·플래그로 표시합니다.</p></div></li>
+      <li><span>3</span><div><h2>공유용 사진 만들기</h2><p>JPEG, sRGB, 품질 92, 장축 3000px로 새 파일을 만들어 03_EXPORT_3000에 저장합니다.</p></div></li>
+      <li><span>4</span><div><h2>Google 포토에 공유</h2><p>03_EXPORT_3000의 사진만 업로드합니다. 원본 RAW는 올리지 않습니다.</p></div></li>
+      <li><span>5</span><div><h2>NAS에 백업</h2><p>행사 폴더 전체를 NAS에 복사하고 NAS에서 파일을 직접 열어 확인합니다.</p></div></li>
+    </ol>
+  </section>
+
+  <section>
+    <div class="title"><span>03</span><div><h1>공유용 내보내기 설정</h1><p>Google 포토에는 아래 설정으로 만든 공유용 사진을 올립니다.</p></div></div>
+    <dl><div><dt>파일 형식</dt><dd>JPEG</dd></div><div><dt>색상 공간</dt><dd>sRGB</dd></div><div><dt>품질</dt><dd>92</dd></div><div><dt>크기</dt><dd>장축 3000px</dd></div><div><dt>저장 위치</dt><dd>03_EXPORT_3000</dd></div><div><dt>파일 이름</dt><dd>YYYYMMDD_행사명_0001.jpg</dd></div></dl>
+    <div class="important"><b>중요</b>“원본으로 내보내기”가 아니라 <strong>원본에서 공유용 JPEG를 새로 만든다</strong>고 안내합니다.</div>
+  </section>
+  <footer>폴더 규칙을 바꿀 때는 기존 폴더를 한꺼번에 수정하지 말고 다음 학기부터 적용합니다.</footer>
+</main>
+</body>
+</html>
